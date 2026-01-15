@@ -137,4 +137,147 @@ button{
   position:absolute;
   width:100%;
   height:100%;
-  backface-visibility:hid
+  backface-visibility:hidden;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  background:linear-gradient(45deg,#ff9a9e,#fad0c4);
+}
+.card-back{
+  transform:rotateY(180deg);
+  background:linear-gradient(45deg,#a18cd1,#fbc2eb);
+  padding:20px;
+}
+
+/* Spotify */
+iframe{
+  border-radius:12px;
+  margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- COUNTDOWN PAGE -->
+<div id="countdown-page">
+  <h1>Something special is coming 💝</h1>
+  <p>Wait just a little longer babe…</p>
+  <div id="countdown"></div>
+</div>
+
+<!-- MAIN WEBSITE -->
+<div id="main-site">
+
+<!-- Floating hearts -->
+<script>
+for(let i=0;i<30;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(12+Math.random()*20)+"px";
+  h.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+<section class="center">
+<h1>Happy Birthday Babe 🎂❤️</h1>
+<p>Something special is waiting for you…</p>
+<button onclick="startReading()">Start Reading 💌</button>
+<div id="letterBox"></div>
+</section>
+
+<section>
+<h2>Our Journey Together 💕</h2>
+<div class="timeline">
+<div class="stage"><img src="m1.jpeg"><strong>July</strong><br>Where everything began</div>
+<div class="stage"><img src="m2.jpeg"><strong>August</strong><br>Getting closer</div>
+<div class="stage"><img src="m3.jpeg"><strong>September</strong><br>Falling deeper</div>
+<div class="stage"><img src="m4.jpeg"><strong>October</strong><br>Comfort & trust</div>
+<div class="stage"><img src="m5.jpeg"><strong>November</strong><br>You became my home</div>
+<div class="stage"><img src="m6.jpeg"><strong>December</strong><br>Still choosing you</div>
+<div class="stage"><img src="m7.jpeg"><strong>January</strong><br>Six months of us ❤️</div>
+</div>
+</section>
+
+<section class="center">
+<h2>A Little Card For You 💝</h2>
+<div class="card">
+  <div class="card-inner">
+    <div class="card-face">Open me 💌</div>
+    <div class="card-face card-back">
+      You are my safest place, my love, my home ❤️
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="center">
+<h2>Our Playlist 🎶</h2>
+<iframe 
+  src="https://open.spotify.com/embed/playlist/0PWKFiFOGJOz5HScc3CfwU"
+  width="100%" 
+  height="380"
+  allow="encrypted-media">
+</iframe>
+</section>
+
+</div>
+
+<script>
+/* COUNTDOWN SCRIPT */
+const birthday = new Date(new Date().getTime() + 60*1000).getTime(); // 1 minute from now
+
+
+const timer = setInterval(()=>{
+  const now = new Date().getTime();
+  const diff = birthday - now;
+
+  if(diff <= 0){
+    clearInterval(timer);
+    document.getElementById("countdown-page").style.display="none";
+    document.getElementById("main-site").style.display="block";
+    return;
+  }
+
+  const d = Math.floor(diff/(1000*60*60*24));
+  const h = Math.floor((diff/(1000*60*60))%24);
+  const m = Math.floor((diff/(1000*60))%60);
+  const s = Math.floor((diff/1000)%60);
+
+  document.getElementById("countdown").innerHTML =
+    `${d} days 💖 ${h} hrs 🎉 ${m} min ⏳ ${s} sec`;
+},1000);
+
+/* LETTER TYPEWRITER */
+const message = `
+I honestly don’t even know where to start, because 6 months with you have changed my life in the most beautiful way.
+
+Since you came into my life, everything feels lighter, happier, and more meaningful.
+
+Babe, you are seriously AMAZING. Aap itna pyaar kaise kar lete ho yaar? 😭❤️
+
+Main hoon na. Always.
+
+Always yours,
+Your girl ❤️✨
+`;
+
+function startReading(){
+  const box=document.getElementById("letterBox");
+  box.style.display="block";
+  let i=0;
+  const interval=setInterval(()=>{
+    box.innerHTML+=message.charAt(i);
+    i++;
+    if(i>=message.length) clearInterval(interval);
+  },35);
+}
+</script>
+
+</body>
+</html>
