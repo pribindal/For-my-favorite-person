@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Babe 💖</title>
+  <title>For My Babe ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --pink:#ff6fae;
-      --dark:#0f0f1a;
-      --light:#fff6fb;
-      --gold:#ffd166;
-    }
-    *{box-sizing:border-box; margin:0; padding:0}
     body{
+      margin:0;
       font-family:'Poppins',sans-serif;
-      background:linear-gradient(135deg,#0f0f1a,#1b1030);
       color:white;
+      background:
+        linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+        url('https://images.unsplash.com/photo-1520975922284-9c9c3a8f6c93?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-attachment:fixed;
       overflow-x:hidden;
     }
     section{
@@ -25,124 +23,98 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
-      gap:20px;
-      scroll-snap-align:start;
+      gap:25px;
     }
     h1,h2{
       font-family:'Playfair Display',serif;
     }
     .center{text-align:center}
 
-    /* HERO / COUNTDOWN */
-    #countdown{
-      text-align:center;
-      background:radial-gradient(circle at top, #2a145a, #0f0f1a);
-      animation:fadeIn 2s ease;
-    }
-    .timer{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      font-size:2rem;
-      margin-top:30px;
-    }
+    /* COUNTDOWN */
+    #countdown{backdrop-filter:blur(2px)}
+    .timer{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
     .box{
-      background:rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.15);
       padding:20px 25px;
       border-radius:20px;
-      backdrop-filter:blur(10px);
       min-width:90px;
-      animation:float 3s ease-in-out infinite;
     }
-    .label{font-size:0.8rem; opacity:0.7}
+    .label{font-size:.8rem;opacity:.8}
 
-    /* HIDDEN CONTENT */
     .hidden{display:none}
 
-    /* MESSAGE */
-    #message{
-      background:linear-gradient(120deg,#ff6fae33,#ffd16622);
+    /* LETTER */
+    .letter{
+      background:rgba(255,255,255,0.12);
+      border-radius:30px;
+      padding:50px;
+      max-width:900px;
+      margin:auto;
+      line-height:1.8;
+      animation:fadeUp 1.5s ease;
     }
-    .card{
-      background:rgba(255,255,255,0.1);
-      border-radius:25px;
-      padding:40px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.4);
-      animation:slideUp 1.5s ease;
-    }
-
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-    }
-    .gallery div{
-      height:250px;
-      background:rgba(255,255,255,0.15);
-      border-radius:20px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:0.9rem;
-      opacity:0.8;
-      transition:transform .4s;
-    }
-    .gallery div:hover{transform:scale(1.05)}
 
     /* TIMELINE */
     .timeline{
-      border-left:3px solid var(--pink);
-      padding-left:30px;
       display:flex;
       flex-direction:column;
-      gap:30px;
+      gap:40px;
+      max-width:900px;
+      margin:auto;
     }
-    .event{
-      position:relative;
+    .stage{
+      display:flex;
+      gap:25px;
+      align-items:center;
+      background:rgba(255,255,255,0.12);
+      padding:25px;
+      border-radius:25px;
     }
-    .event::before{
-      content:'';
-      position:absolute;
-      left:-41px;
-      top:5px;
-      width:18px;
-      height:18px;
-      background:var(--pink);
-      border-radius:50%;
+    .stage img{
+      width:140px;
+      height:140px;
+      object-fit:cover;
+      border-radius:20px;
     }
-
-    /* PLAYLIST */
-    iframe{border-radius:20px}
 
     /* SURPRISE */
-    #surpriseBtn{
-      padding:15px 30px;
+    button{
+      padding:15px 35px;
       border:none;
       border-radius:30px;
-      background:linear-gradient(135deg,var(--pink),var(--gold));
-      font-size:1rem;
-      cursor:pointer;
-      color:#0f0f1a;
+      background:linear-gradient(135deg,#ff6fae,#ffd166);
       font-weight:600;
-      margin:0 auto;
-      transition:transform .3s;
+      cursor:pointer;
     }
-    #surpriseBtn:hover{transform:scale(1.05)}
-    #surpriseMsg{margin-top:30px; display:none}
 
-    /* ANIMATIONS */
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes slideUp{from{opacity:0; transform:translateY(40px)}to{opacity:1; transform:none}}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(40px)}
+      to{opacity:1;transform:none}
+    }
+  /* FLOATING HEARTS */
+    .heart{
+      position:fixed;
+      bottom:-20px;
+      font-size:20px;
+      animation:floatUp linear infinite;
+      opacity:0.7;
+      pointer-events:none;
+    }
+    @keyframes floatUp{
+      from{transform:translateY(0);opacity:0.8}
+      to{transform:translateY(-110vh);opacity:0}
+    }
+
+    /* TYPEWRITER */
+    .typewriter span{border-right:2px solid #fff;animation:blink 1s infinite}
+    @keyframes blink{0%,50%{border-color:#fff}51%,100%{border-color:transparent}}
   </style>
 </head>
 <body>
 
-<!-- COUNTDOWN ONLY BEFORE BIRTHDAY -->
-<section id="countdown">
-  <h1>Something special is coming for you, Babe 💫</h1>
-  <p>Wait with me till 18 January</p>
+<section id="countdown" class="center">
+  <h1>Something special is coming for you, Babe ❤️</h1>
+  <p>Just a little wait…</p>
   <div class="timer">
     <div class="box"><div id="days">0</div><div class="label">Days</div></div>
     <div class="box"><div id="hours">0</div><div class="label">Hours</div></div>
@@ -151,82 +123,89 @@
   </div>
 </section>
 
-<!-- REVEALED ON BIRTHDAY -->
 <div id="birthdayContent" class="hidden">
 
-<section id="message" class="center">
-  <h2>Happy Birthday, Babe 🎂💖</h2>
-  <div class="card">
-    <p>
-      Happy Birthday my babe. You are my safe place, my chaos, my calm and my everything all at once.
-      Every day with you feels warmer, brighter and a little more magical.
-      Thank you for being you — for loving me, choosing me and standing by me.
-      I hope this year gives you everything your heart dreams of.
-    </p>
-    <p style="margin-top:20px">Forever yours,<br><strong>Your girl</strong></p>
+<section class="center">
+  <h2>Happy Birthday, Babe 🎂❤️</h2>
+  <button onclick="startReading()">Start reading</button>
+  <div class="letter typewriter" id="letter" style="display:none">
+    <p>I honestly don’t even know where to start, because 6 months with you have changed my life in the most beautiful way. Since you came into my life, everything feels lighter, happier, and more meaningful. You made me smile on days I didn’t even want to talk, and you made me feel loved in ways I never knew I needed.</p>
+
+    <p>Babe, you are seriously AMAZING. The way you care for me, the way you understand me, the way you always try to make things better — it means the world to me. Aap itna pyaar kaise kar lete ho yaar? 😭❤️ Sometimes I just look at us and think, <em>we are just made for each other.</em></p>
+
+    <p>And babe… when you cry, it makes my heart so emotional. I feel so bad seeing tears in your eyes because you’re such a strong and pure soul. Please don’t cry, baby 🫶 I’m always with you, no matter what. Aap akele kabhi nahi ho, samjhe? Main hoon na. Always.</p>
+
+    <p>You’ve made my life better just by being in it. You make me feel safe, loved, and valued. Even on bad days, just talking to you makes everything okay. Sach bolun toh, aap meri life ka sabse pyaara part ban chuke hai ❤️</p>
+
+    <p>I love you so so so much. More than words, more than I can explain. I’m grateful for you every single day, and I’m so lucky to call you mine. Here’s to many more birthdays, memories, laughs, tears (but happy ones 😄), and endless love together.</p>
+
+    <p style="margin-top:30px"><strong>Always yours,<br>Your girl ❤️✨</strong></p>
   </div>
 </section>
 
 <section>
-  <h2>Us, Babe 📸</h2>
-  <div class="gallery">
-    <div>Photo 1</div>
-    <div>Photo 2</div>
-    <div>Photo 3</div>
-    <div>Photo 4</div>
-  </div>
-  <p style="opacity:.6">(You can replace these with your photos)</p>
-</section>
-
-<section>
-  <h2>Our Timeline 🕰️</h2>
+  <h2 class="center">Our 6 Months Together 💞</h2>
   <div class="timeline">
-    <div class="event"><strong>The day we met</strong><br>Everything changed</div>
-    <div class="event"><strong>First laugh together</strong><br>My favorite sound</div>
-    <div class="event"><strong>Every little moment</strong><br>That made us us</div>
+    <div class="stage"><img src="m1.jpg"><div><strong>Month 1</strong><br>Where everything began</div></div>
+    <div class="stage"><img src="m2.jpg"><div><strong>Month 2</strong><br>Getting closer every day</div></div>
+    <div class="stage"><img src="m3.jpg"><div><strong>Month 3</strong><br>Falling deeper</div></div>
+    <div class="stage"><img src="m4.jpg"><div><strong>Month 4</strong><br>Comfort, love & trust</div></div>
+    <div class="stage"><img src="m5.jpg"><div><strong>Month 5</strong><br>You became my home</div></div>
+    <div class="stage"><img src="m6.jpg"><div><strong>Month 6</strong><br>Still choosing you, always</div></div>
   </div>
 </section>
 
 <section class="center">
-  <h2>Songs that feel like you 🎶</h2>
-  <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="100%" height="380" allow="encrypted-media"></iframe>
-</section>
-
-<section class="center">
-  <h2>One last thing, Babe 💝</h2>
-  <button id="surpriseBtn">Click me</button>
-  <div id="surpriseMsg" class="card">
-    <p>You are the best thing that ever happened to me. I love you more than words, more than time, more than distance. Always you, Babe.</p>
-  </div>
+  <h2>One Last Thing, Babe 💖</h2>
+  <button onclick="document.getElementById('finalMsg').style.display='block'">Click me</button>
+  <p id="finalMsg" style="display:none;margin-top:30px">You are my favorite person, my safe place, my love. Always you.</p>
 </section>
 
 </div>
 
 <script>
-  const targetDate = new Date('January 1, 2026 00:00:00').getTime();
-  const countdownSection = document.getElementById('countdown');
-  const birthdayContent = document.getElementById('birthdayContent');
+  const targetDate = new Date('January 18, 2026 00:00:00').getTime();
+  const countdown = document.getElementById('countdown');
+  const content = document.getElementById('birthdayContent');
 
-  function updateCountdown(){
+  function tick(){
     const now = new Date().getTime();
-    const diff = targetDate - now;
-
-    if(diff <= 0){
-      countdownSection.style.display='none';
-      birthdayContent.classList.remove('hidden');
-      return;
-    }
-    document.getElementById('days').innerText = Math.floor(diff/(1000*60*60*24));
-    document.getElementById('hours').innerText = Math.floor((diff/(1000*60*60))%24);
-    document.getElementById('minutes').innerText = Math.floor((diff/(1000*60))%60);
-    document.getElementById('seconds').innerText = Math.floor((diff/1000)%60);
+    const d = targetDate - now;
+    if(d <= 0){countdown.style.display='none';content.classList.remove('hidden');return;}
+    days.innerText = Math.floor(d/(1000*60*60*24));
+    hours.innerText = Math.floor((d/(1000*60*60))%24);
+    minutes.innerText = Math.floor((d/(1000*60))%60);
+    seconds.innerText = Math.floor((d/1000)%60);
   }
-  setInterval(updateCountdown,1000);
-  updateCountdown();
+  setInterval(tick,1000);tick();
+</script>
+<script>
+// TYPEWRITER EFFECT
+function startReading(){
+  const letter=document.getElementById('letter');
+  letter.style.display='block';
+  const text=letter.innerHTML;
+  letter.innerHTML='';
+  let i=0;
+  const speed=25;
+  const typer=setInterval(()=>{
+    letter.innerHTML+=text.charAt(i);
+    i++;
+    if(i>=text.length) clearInterval(typer);
+  },speed);
+}
 
-  document.getElementById('surpriseBtn').onclick=()=>{
-    document.getElementById('surpriseMsg').style.display='block';
-  }
+// FLOATING HEARTS
+function createHeart(){
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.innerText='❤️';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=5+Math.random()*5+'s';
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),10000);
+}
+setInterval(createHeart,800);
 </script>
 </body>
 </html>
