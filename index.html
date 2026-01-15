@@ -114,7 +114,6 @@ button{
   width:100%;
   height:240px;
   object-fit:cover;
-  object-position:center 20%;
 }
 
 /* Greeting Card */
@@ -230,7 +229,8 @@ for(let i=0;i<30;i++){
 
 <script>
 /* COUNTDOWN SCRIPT */
-const birthday = new Date(new Date().getTime() + 60*1000).getTime(); // 1 minute from now
+const birthday = new Date(2026, 0, 18, 0, 0, 0).getTime();
+
 
 
 const timer = setInterval(()=>{
